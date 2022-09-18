@@ -1,34 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useCallback, useState } from "react";
+import reactLogo from "./assets/react.svg";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  const increment = useCallback(() => {
+    setCount((prev) => prev + 1);
+  }, []);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
+    <div className="w-screen h-screen p-3">
+      <div className="flex flex-col justify-center items-center">
+        <a
+          className="hover:opacity-60"
+          href="https://vitejs.dev"
+          target="_blank"
+        >
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
-        <a href="https://reactjs.org" target="_blank">
+
+        <a
+          className="hover:opacity-60 mt-3"
+          href="https://reactjs.org"
+          target="_blank"
+        >
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+
+      <h1 className="text-2xl font-bold text-center pt-3">Vite + React</h1>
+
+      <div className="flex flex-col justify-center items-center">
+        <button
+          className="border border-transparent border-r-8 px-2 py-2 text-base font-medium bg-black dark:bg-white cursor-pointer"
+          onClick={increment}
+        >
           count is {count}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
+
+      <p className="text-center">
         Click on the Vite and React logos to learn more
       </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
