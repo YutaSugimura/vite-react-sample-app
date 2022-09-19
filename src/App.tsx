@@ -1,7 +1,7 @@
-import { useCallback, useState } from "react";
+import { type FC, useCallback, useState } from "react";
 import reactLogo from "./assets/react.svg";
 
-function App() {
+const App: FC = () => {
   const [count, setCount] = useState(0);
 
   const increment = useCallback(() => {
@@ -47,6 +47,6 @@ function App() {
       </p>
     </div>
   );
-}
+};
 
 export default App;
